@@ -15,3 +15,11 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/resume', function(){
+    return "Este es mi resume, brutha!";
+});
+
+Route::get('/portfolio', function(){
+    return "Este es mi portfolio, brutha!";
+});
