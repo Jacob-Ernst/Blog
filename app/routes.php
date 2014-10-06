@@ -16,11 +16,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/resume/{who}', function($isemployer){
-    if ($isemployer = 'yes') {
-        return Redirect::to('http://google.com');
-    }
-    return "Este es mi resume, brutha!";
+Route::get('/resume', function(){
+    
+    return View::make('resume');
 });
 
 Route::get('/rolldice/{guess}', function($guess)
@@ -35,5 +33,5 @@ Route::get('/rolldice/{guess}', function($guess)
 
 
 Route::get('/portfolio', function(){
-    return "Este es mi portfolio, brutha!";
+    return View::make('portfolio');
 });
