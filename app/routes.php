@@ -28,5 +28,9 @@ Route::get('/rolldice/{guess}', function($guess)
     return View::make('roll-dice', $data);
 });
 
+Route::get('orm-test', function ()
+{
+    // test code here
+});
 
 Route::get('/portfolio', 'HomeController@showPortfolio');
