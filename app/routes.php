@@ -16,10 +16,7 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/resume', function(){
-    
-    return View::make('resume');
-});
+Route::get('/resume', 'HomeController@showResume');
 
 Route::get('/rolldice/{guess}', function($guess)
 {
@@ -32,6 +29,4 @@ Route::get('/rolldice/{guess}', function($guess)
 });
 
 
-Route::get('/portfolio', function(){
-    return View::make('portfolio');
-});
+Route::get('/portfolio', 'HomeController@showPortfolio');
