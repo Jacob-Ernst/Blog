@@ -33,4 +33,6 @@ Route::get('orm-test', function ()
     // test code here
 });
 
+Route::resource('posts', 'PostsController');
+
 Route::get('/portfolio', 'HomeController@showPortfolio');
