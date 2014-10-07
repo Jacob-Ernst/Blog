@@ -33,16 +33,25 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{	
-		$post = new Post();
+		$validator = Validator::make( Input::all() , Post::$rules);
 		
-		$post->title = Input::get('title');
-		$post->content = Input::get('content');
+		if ($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+		else {
+			$post = new Post();
 		
-		$post->save();
+			$post->title = Input::get('title');
+			$post->content = Input::get('content');
+			
+			$post->save();
+			
+			$post_id = $post->id;
+			
+			return Redirect::action('PostsController@show', $post_id);
+		}
 		
-		$post_id = $post->id;
 		
-		return Redirect::action('PostsController@show', $post_id);
 	}
 
 
