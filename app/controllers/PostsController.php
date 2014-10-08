@@ -80,7 +80,9 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return "$id is edited here";
+		$post = Post::find($id);
+		
+		return View::make('posts.edit')->with('post', $post);
 	}
 
 
@@ -92,7 +94,23 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		return "Update $id";
+		$validator = Validator::make( Input::all() , Post::$rules);
+		
+		if ($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+		else {
+			$post = Post::find($id);
+		
+			$post->title = Input::get('title');
+			$post->content = Input::get('content');
+			
+			$post->save();
+			
+			$post_id = $post->id;
+			
+			return Redirect::action('PostsController@show', $post_id);
+		}
 	}
 
 	protected function savePost(Post $post){
