@@ -1,20 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class='container'>
         
             @forelse($posts as $post)
-                <div class='container'>
-                  <h2>{{ $post->title}}</h2>
-                  <article>{{ $post->content}}</article>
-                  <p>{{ $post->created_at}}</p>
-                  <a href="{{{ action('PostsController@show', $post->id) }}}">View</a>
+                <div class='page-header'>
+                    <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title}}</a></h3>
                 </div>
+                    <p>{{ $post->content}}</p>
+                    <p class='small'>created {{{$post->created_at->setTimezone('America/Chicago')->diffForHumans()}}}</p>
             @empty
               <h1>No Posts</h1>
             @endforelse
         
         {{ $posts->links() }}
-    </div>
     
 @stop
