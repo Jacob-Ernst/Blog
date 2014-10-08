@@ -2,15 +2,19 @@
 
 @section('content')
     <div class='container'>
-        <ul>
+        
             @forelse($posts as $post)
-              <li>{{ $post->title}}</li>
-              <li>{{ $post->content}}</li>
-              <li>{{ $post->created_at}}</li>
-              <li><a href="{{{ action('PostsController@show', $post->id) }}}">View</a></li>
+                <div class='container'>
+                  <h2>{{ $post->title}}</h2>
+                  <article>{{ $post->content}}</article>
+                  <p>{{ $post->created_at}}</p>
+                  <a href="{{{ action('PostsController@show', $post->id) }}}">View</a>
+                </div>
             @empty
-              <li>No Posts</li>
+              <h1>No Posts</h1>
             @endforelse
-        </ul>
+        
+        {{ $posts->links() }}
     </div>
+    
 @stop
