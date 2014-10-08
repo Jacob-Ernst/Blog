@@ -33,6 +33,9 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{	
+		// $post = new Post ();
+		// return $this->savePost($post);
+		
 		$validator = Validator::make( Input::all() , Post::$rules);
 		
 		if ($validator->fails()) {
@@ -92,6 +95,9 @@ class PostsController extends \BaseController {
 		return "Update $id";
 	}
 
+	protected function savePost(Post $post){
+		
+	}
 
 	/**
 	 * Remove the specified resource from storage.
