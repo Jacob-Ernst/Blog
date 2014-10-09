@@ -64,6 +64,7 @@ App::error(function(Exception $exception, $code)
 
 App::missing(function($exception)
 {
+    Log::info('404 error encountered');
     return Response::view('errors.missing', array(), 404);
 });
 
