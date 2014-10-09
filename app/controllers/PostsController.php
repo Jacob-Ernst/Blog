@@ -39,7 +39,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make( Input::all() , Post::$rules);
 		
 		if ($validator->fails()) {
-			Log::info('Post could not be saved');
+			Log::info('Post could not be created', Input::all());
 			Session::flash('errorMessage', 'Oops someone was dumb');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
@@ -111,7 +111,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make( Input::all() , Post::$rules);
 		
 		if ($validator->fails()) {
-			Log::info('Post could not be edited');
+			Log::info('Post could not be edited', Input::all());
 			Session::flash('errorMessage', 'Oops someone was dumb');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
@@ -143,7 +143,18 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "Delete Delete Delete $id";
+		$post = Post::find($id);
+		
+		if(!$post) {
+			App::abort(404);
+		}
+		$post->delete();
+		
+		Log::info('Post deleted successfully');
+		
+		Session::flash('successMessage', 'Post Deleted');
+		
+		return Redirect::action('PostsController@index');
 	}
 
 
