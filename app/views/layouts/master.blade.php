@@ -4,6 +4,14 @@
     <!--add bootstrap and jquery-->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript">"/bootstrap/js/bootstrap.min.js"</script>
+    <style type="text/css" media="screen">
+        body{
+            background-image: url('/img/congruent_pentagon/congruent_pentagon.png')
+        }
+        nav{
+            background-image: url('/img/sprinkles/sprinkles.png')
+        }
+    </style>
     @yield('top-script')
 </head>
 <body>
