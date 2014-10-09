@@ -39,6 +39,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make( Input::all() , Post::$rules);
 		
 		if ($validator->fails()) {
+			Log::info('Post could not be saved');
 			Session::flash('errorMessage', 'Oops someone was dumb');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
@@ -110,6 +111,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make( Input::all() , Post::$rules);
 		
 		if ($validator->fails()) {
+			Log::info('Post could not be edited');
 			Session::flash('errorMessage', 'Oops someone was dumb');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
