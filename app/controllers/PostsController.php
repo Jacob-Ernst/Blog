@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$posts = Post::orderBy('created_at', 'DESC')->paginate(2);
+		$posts = Post::orderBy('created_at', 'DESC')->paginate(3);
 		
 		return View::make('posts.index')->with('posts', $posts);
 	}
@@ -70,7 +70,12 @@ class PostsController extends \BaseController {
 	public function show($id)
 	{
 		$post = Post::find($id);
-			
+		
+		if(!$post)
+		{
+			App::abort(404);
+		}
+		
 		return View::make('posts.show')->with('post', $post);
 	}
 
@@ -84,6 +89,11 @@ class PostsController extends \BaseController {
 	public function edit($id)
 	{
 		$post = Post::find($id);
+		
+		if(!$post)
+		{
+			App::abort(404);
+		}
 		
 		return View::make('posts.edit')->with('post', $post);
 	}
