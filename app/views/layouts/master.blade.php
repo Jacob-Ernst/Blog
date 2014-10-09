@@ -74,6 +74,18 @@
     <div class= 'container'>
         <div class='row'>
             <div class='col-md-8 col-md-offset-2'>
+                @if (Session::has('successMessage'))
+                    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+                @endif
+                @if (Session::has('errorMessage'))
+                    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+                @endif
+                @if (Session::has('warningMessage'))
+                    <div class="alert alert-danger">{{{ Session::get('warningMessage') }}}</div>
+                @endif
+                @if (Session::has('infoMessage'))
+                    <div class="alert alert-danger">{{{ Session::get('infoMessage') }}}</div>
+                @endif
                 @yield('content')
             </div>
         </div>

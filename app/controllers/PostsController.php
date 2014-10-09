@@ -39,6 +39,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make( Input::all() , Post::$rules);
 		
 		if ($validator->fails()) {
+			Session::flash('errorMessage', 'Oops someone was dumb');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 		else {
@@ -50,6 +51,8 @@ class PostsController extends \BaseController {
 			$post->save();
 			
 			$post_id = $post->id;
+			
+			Session::flash('successMessage', 'Thar ye goes!');
 			
 			return Redirect::action('PostsController@show', $post_id);
 		}
@@ -97,6 +100,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make( Input::all() , Post::$rules);
 		
 		if ($validator->fails()) {
+			Session::flash('errorMessage', 'Oops someone was dumb');
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 		else {
@@ -108,6 +112,8 @@ class PostsController extends \BaseController {
 			$post->save();
 			
 			$post_id = $post->id;
+			
+			Session::flash('successMessage', 'Thar ye goes!');
 			
 			return Redirect::action('PostsController@show', $post_id);
 		}
