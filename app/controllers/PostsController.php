@@ -58,6 +58,8 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->content = Input::get('content');
 			
+			$post->user_id = Auth::user()->id;
+			
 			$post->save();
 			
 			$post_id = $post->id;

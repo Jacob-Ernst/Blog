@@ -4,6 +4,7 @@
 
     <h1 class='text-left page-header'>{{{$post->title}}}    <small>{{{$post->created_at->diffForHumans()}}}</small></h1>
     <p class=''>{{{$post->content}}}</p>
+    <p class=''>{{{$post->user->email}}}</p>
     <a href="{{{ action('PostsController@edit', $post->id) }}}" class='btn btn-default'>Edit</a>
     {{ Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'delete', 'id' => 'delete-form']) }}
       {{ Form::submit('Delete Post')  }}

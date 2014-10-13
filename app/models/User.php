@@ -23,14 +23,9 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 	
-	public function setPasswordAttribute($value)
+	public function posts()
 	{
-	    $this->attributes['password'] = Hash::make($value);
-	}
-	
-	public function setEmailAttribute($value)
-	{
-	    $this->attributes['email'] = strtolower($value);
+	    return $this->hasMany('Post');
 	}
 
 }

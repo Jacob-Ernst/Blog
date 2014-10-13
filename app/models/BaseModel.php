@@ -13,13 +13,13 @@ class BaseModel extends Eloquent {
         $utc = Carbon::createFromFormat($this->getDateFormat(), $value);
         return $utc->setTimezone('America/Chicago');
     }
-    public function setCreatedAtAttribute($value)
-    {  
-        $utc = Carbon::createFromFormat($this->getDateFormat(), $value);
-        return $utc->setTimezone('UTC');
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
     }
-    public function setUpdatedAtAttribute($value){
-        $utc = Carbon::createFromFormat($this->getDateFormat(), $value);
-        return $utc->setTimezone('UTC');
+    
+    public function setEmailAttribute($value)
+    {
+        $this->attributes['email'] = strtolower($value);
     }
 }
