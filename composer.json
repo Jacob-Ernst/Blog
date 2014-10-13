@@ -7,7 +7,9 @@
 		"laravel/framework": "4.2.*"
 	},
 	"require-dev":  {
-		"way/generators": "~2.6"
+		"way/generators": "~2.6",
+		"fzaninotto/faker": "~1.4",
+		"barryvdh/laravel-debugbar": "1.*"
 	},
 	"autoload": {
 		"classmap": [
