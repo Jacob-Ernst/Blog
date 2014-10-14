@@ -35,9 +35,9 @@
           <ul class="nav navbar-nav">
             <li><a href="#">Link</a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
+          <form class="navbar-form navbar-left" role="search" method='GET' action="{{ action('PostsController@index')}}">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
+              <input type="text" id='search' name='search'class="form-control" placeholder="Search">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
