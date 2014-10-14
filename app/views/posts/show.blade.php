@@ -4,13 +4,12 @@
 
     <h1 class='text-left page-header'>{{{$post->title}}}    <small>{{{$post->created_at->diffForHumans()}}}</small></h1>
     <p class=''>{{{$post->content}}}</p>
-    <p class=''>Created by {{{$post->user->first_name}}} {{{$post->user->last_name}}}</p>
+    <p class='small'>Created by {{{$post->user->first_name}}} {{{$post->user->last_name}}}</p>
    
     @if(Auth::check() && Auth::Id() == $post->user_id)
-        <a href="{{{ action('PostsController@edit', $post->id) }}}" class='btn btn-default'>Edit</a>
         {{ Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'delete', 'id' => 'delete-form']) }}
-          {{ Form::submit('Delete Post')  }}
-          <!-- <button type="submit">Delete</button> -->
+            <a href="{{{ action('PostsController@edit', $post->id) }}}" class='btn btn-warning btn-sm'>Edit</a>
+            {{ Form::submit('Delete Post', array('class' => 'btn btn-danger btn-sm'))  }}
         {{ Form::close() }}
     @endif
 @stop

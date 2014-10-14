@@ -25,6 +25,12 @@ class PostsController extends \BaseController {
 			$search = Input::get('search');
 			$query->where('title', 'like', "%$search%");
 			$query->orWhere('content', 'like', "%$search%");
+			
+			$query->orWhereHas('user', function($nameSearch){
+				$search = Input::get('search');
+				$nameSearch->where('first_name', 'like', "%$search%");
+				$nameSearch->orWhere('last_name', 'like', "%$search%");
+			});
 		}
 		
 		$posts = $query->orderBy('created_at', 'DESC')->paginate(3);
