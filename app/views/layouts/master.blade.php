@@ -5,7 +5,7 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src='/jquery-1.11.1.min.js'></script>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/font-awesome-4.2.0/css/font-awesom.min.css">
+    <link rel="stylesheet" type="text/css" href="/font-awesome-4.2.0/css/font-awesome.min.css">
     <style type="text/css" media="screen">
         body{
             background-image: url('/img/congruent_pentagon/congruent_pentagon.png')
