@@ -5,6 +5,7 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src='/jquery-1.11.1.min.js'></script>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/font-awesome-4.2.0/css/font-awesom.min.css">
     <style type="text/css" media="screen">
         body{
             background-image: url('/img/congruent_pentagon/congruent_pentagon.png')
@@ -36,10 +37,12 @@
             <li><a href="#">Link</a></li>
           </ul>
           <form class="navbar-form navbar-left" role="search" method='GET' action="{{ action('PostsController@index')}}">
-            <div class="form-group">
               <input type="text" id='search' name='search'class="form-control" placeholder="Search">
+            <div class="form-group">
+                <span>
+                    <button class='btn btn-default'><i class='fa fa-search'></i></button>
+                </span>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Link</a></li>
