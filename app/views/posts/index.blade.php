@@ -1,4 +1,11 @@
 @extends('layouts.master')
+@section('title')
+    @if (Input::has('search'))
+        <title>Search "{{{Input::get('search')}}}"</title>
+    @else
+        <title>Posts</title>
+    @endif
+@stop
 
 @section('content')
             @if(Input::has('search'))

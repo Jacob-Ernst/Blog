@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Bloggy Wog</title>
+    @yield('title')
     <!--add bootstrap and jquery-->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src='/jquery-1.11.1.min.js'></script>
