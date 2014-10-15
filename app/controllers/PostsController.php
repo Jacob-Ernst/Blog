@@ -75,6 +75,18 @@ class PostsController extends \BaseController {
 			
 			$post->user_id = Auth::id();
 			
+			if(Input::hasFile('file') && Input::file('file')->isValid()){
+				$file = Input::file('file');
+				$local_path = '/img/upload/';
+				$destinationPath = public_path() . $local_path;
+				$filename = str_random(8) . "_" . $file->getClientOriginalName();
+				$file->move($destinationPath, $filename);
+				$post->file = $local_path . $filename;
+			}
+			else{
+				$post->file = null;
+			}
+			
 			$post->save();
 			
 			$post_id = $post->id;

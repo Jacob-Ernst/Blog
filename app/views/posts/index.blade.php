@@ -16,6 +16,7 @@
                     <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title}}</a><small> by {{{$post->user->first_name}}} {{{$post->user->last_name}}}</small></h3>
                 </div>
                     <p class='small'>created {{{$post->created_at->diffForHumans()}}}</p>
+                    <img src="{{$post->file}}">
                     <p>{{ substr($post->content, 0, 255) . "..."}}</p>
                     <a href="{{ action('PostsController@show', $post->id)}}" class='btn btn-primary btn-sm'>Read more</a>
             @empty

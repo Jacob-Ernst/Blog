@@ -10,3 +10,10 @@
     {{ Form::textarea('content', Input::old('content'), array('class' => 'form-control')) }}
 </div>
     {{$errors->first('content', '<span class="help-block">:message</span>')}}
+    
+<div class="form-group">
+    {{ Form::label('file', 'Image:', array('class' => '')) }}
+    {{ Form::file('file', Input::old('file'), array('class' => 'form-control')) }}
+    <p class="help-block">Upload image here</p>
+</div>
+{{$errors->first('file', '<span class="help-block">:message</span>')}}

@@ -4,7 +4,8 @@
 class Post extends BaseModel {
     public static $rules = array(
         'title' => 'required|max:255', 
-        'content' => 'required'
+        'content' => 'required',
+        'file' => 'image'
     );
     protected $table = 'posts';
     

@@ -1,9 +1,9 @@
 @extends('layouts.master')
-@section('title', 'Edit')
+@section('title', '<title>Edit</title>')
 @section('content')
 
 
-    {{ Form::model($post, array('action' => ['PostsController@update', $post->id], 'method' => 'PUT')) }}
+    {{ Form::model($post, array('action' => ['PostsController@update', $post->id], 'method' => 'PUT', 'files' => 'true')) }}
     <div class="page-header">
       <h1>Edit:</h1>
     </div>    

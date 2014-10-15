@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Portfolio')
+@section('title', '<title>Portfolio</title>')
 @section('content')
     
     <a href="{{{ action('HomeController@showResume') }}}">Resume</a>

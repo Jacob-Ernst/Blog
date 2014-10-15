@@ -4,6 +4,7 @@
 @section('content')
 
     <h1 class='text-left page-header'>{{{$post->title}}}    <small>{{{$post->created_at->diffForHumans()}}}</small></h1>
+    <img src="{{$post->file}}" >
     <p class=''>{{{$post->content}}}</p>
     <p class='small'>Created by {{{$post->user->first_name}}} {{{$post->user->last_name}}}</p>
    
