@@ -44,7 +44,7 @@ class HomeController extends BaseController {
 		    return Redirect::intended('/posts');
 		} else {
 			Session::flash('errorMessage', 'Could not login');
-			return Redirect::action('HomeController@showLogin')-withInput();
+			return Redirect::action('HomeController@showLogin')->withInput();
 		}
 	}
 	
