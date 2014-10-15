@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Login')
+@section('title', '<title>Login</title>')
 @section('content')
     {{ Form::open(array('action' => 'HomeController@doLogin')) }}
         <div class="page-header">
