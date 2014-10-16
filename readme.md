@@ -1,6 +1,6 @@
 ## Laravel blog project(Codeup)
 
-Blog created using 
+Blog created using Laravel
 
 
 ## Official Documentation
