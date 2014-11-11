@@ -8,13 +8,21 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src='/jquery-1.11.1.min.js'></script>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/Markdown.Converter.js"></script>
+    <script type="text/javascript" src="/js/Markdown.Sanitizer.js"></script>
+    <script type="text/javascript" src="/js/Markdown.Editor.js"></script>
     <link rel="stylesheet" type="text/css" href="/font-awesome-4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput.css" />
     <style type="text/css" media="screen">
         body{
             background-image: url('/img/congruent_pentagon/congruent_pentagon.png')
         }
         nav{
             background-image: url('/img/sprinkles/sprinkles.png')
+        }
+        .tag-holder{
+            height: 30%;
+            width: 50%;
         }
     </style>
     @yield('top-script')
@@ -37,7 +45,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#">Link</a></li>
+            <li><button data-toggle="modal" type="button" data-target="#modal-newpost" id="about" class="btn btn-success btn-lg">Post</button></li>
           </ul>
           <form class="navbar-form navbar-left" role="search" method='GET' action="{{ action('PostsController@index')}}">
               <input type="text" id='search' name='search'class="form-control" placeholder="Search">
@@ -89,7 +97,54 @@
     </div>
     
     
+    <!-- --------------------- Modal for new post --------------------- -->
+
+        <div class="container">
+            <div id="modal-newpost" class="modal fade lg" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                            {{ Form::open(array('action' => 'PostsController@store', 'role' => 'form', 'files' => 'true')) }}
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            {{ Form::text('title', Input::old('title'), array('class' => 'form-control', 'required' => 'required','placeholder' => 'Title')) }}
+                        </div>
+                        {{ $errors->first('title', '<span class="help-block">:message</span>')}}
+                        <div class="modal-body">
+                            <h3>Write A New Post</h3>
+                            <div class="form-group">
+                                {{ Form::textarea('content', Input::old('content'), array('class' => 'form-control', 'required' => 'required','placeholder' => 'content')) }}
+                            </div>
+                            {{$errors->first('content', '<span class="help-block">:message</span>')}}
+                            <div class="form-group">
+                                {{ Form::label('file', 'Image:', array('class' => '')) }}
+                                {{ Form::file('file', Input::old('file'), array('class' => 'form-control')) }}
+                                <p class="help-block">Upload image here</p>
+                            </div>
+                            {{$errors->first('file', '<span class="help-block">:message</span>')}}
+                        </div> 
+                        <div class="modal-footer">
+                            
+                            <div class='tag-holder'>                               
+                                <h5 class="tags">Create Tags</h5>
+                                <input id="tags" class="tags"  name='tags' placeholder="Create tags" class="form-control">
+                            </div>
+                            {{Form::submit('Post', array('class' => 'btn btn-default'))}}
+
+                 
+                        </div>
+                        {{ Form::close() }}
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dalog -->
+            </div><!-- /.modal -->
+        </div>
+<!-- --------------------- Modal end --------------------- -->
     
+    
+    <script src="/js/jquery.tagsinput.js"></script>
+    <script type="text/javascript">
+            $('#tags').tagsInput({
+            }); 
+    </script>
     @yield('bottom script')
 
 </body>
