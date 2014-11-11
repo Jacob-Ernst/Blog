@@ -86,6 +86,9 @@ class PostsController extends \BaseController {
 			else{
 				$post->file = null;
 			}
+			if (Input::has('tags')) {
+            	$post->tag_list = Input::get('tags');
+        	}
 			
 			$post->save();
 			
@@ -168,9 +171,6 @@ class PostsController extends \BaseController {
 				$filename = str_random(8) . "_" . $file->getClientOriginalName();
 				$file->move($destinationPath, $filename);
 				$post->file = $local_path . $filename;
-			}
-			else{
-				$post->file = null;
 			}
 			$post->save();
 			
