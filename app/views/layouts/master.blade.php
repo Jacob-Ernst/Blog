@@ -44,9 +44,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          @if (Auth::check())
           <ul class="nav navbar-nav">
             <li><button data-toggle="modal" type="button" data-target="#modal-newpost" id="about" class="btn btn-success btn-lg">Post</button></li>
           </ul>
+          @endif
           <form class="navbar-form navbar-left" role="search" method='GET' action="{{ action('PostsController@index')}}">
               <input type="text" id='search' name='search'class="form-control" placeholder="Search">
             <div class="form-group">
