@@ -33,7 +33,7 @@ class PostsController extends \BaseController {
 			});
 		}
 		
-		$posts = $query->orderBy('created_at', 'DESC')->paginate(3);
+		$posts = $query->orderBy('created_at', 'DESC')->paginate(4);
 		
 		return View::make('posts.index')->with('posts', $posts);
 	}
@@ -86,14 +86,14 @@ class PostsController extends \BaseController {
 			else{
 				$post->file = null;
 			}
-			if (Input::has('tags')) {
-            	$post->tag_list = Input::get('tags');
-        	}
 			
 			$post->save();
 			
 			$post_id = $post->id;
 			
+			if (Input::has('tags')) {
+            	$post->tag_list = Input::get('tags');
+        	}
 			Session::flash('successMessage', 'Thar ye goes!');
 			
 			return Redirect::action('PostsController@show', $post_id);
