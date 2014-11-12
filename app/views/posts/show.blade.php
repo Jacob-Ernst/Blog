@@ -2,7 +2,6 @@
 @section('title', "<title>$post->title</title>")
 
 @section('content')
-    <h1>YOOOOOO</h1>
     <h1 class='text-left page-header'>{{{$post->title}}}</h1>
     <img src="{{$post->file}}" class='img-responsive'>
     <p class=''>{{{$post->content}}}</p>

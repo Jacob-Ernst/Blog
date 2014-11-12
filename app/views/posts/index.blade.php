@@ -28,7 +28,8 @@
               </div>
             @endforelse
         
-        {{ $posts->links() }}
-        {{ $posts->appends(array('search' => Input::get('search')))->links()}}
+        <div class="text-center">
+            {{ $posts->appends(array('search' => Input::get('search')))->links()}}
+        </div>
     
 @stop
