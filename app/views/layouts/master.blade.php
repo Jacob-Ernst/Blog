@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           @if (Auth::check())
           <ul class="nav navbar-nav">
-            <li><button data-toggle="modal" type="button" data-target="#modal-newpost" id="about" class="btn btn-success btn-lg">Post</button></li>
+            <li><a data-toggle="modal" type="button" data-target="#modal-newpost" id="about" class="btn btn-lg">Post</a></li>
           </ul>
           @endif
           <form class="navbar-form navbar-left" role="search" method='GET' action="{{ action('PostsController@index')}}">
@@ -70,7 +70,7 @@
                     </ul>
                 </li>    
               @else
-                <li><a href="{{{ action('HomeController@showLogin') }}}">Login</a></li>
+                <li><a data-toggle="modal" type="button" data-target="#modal-login" id="about" class="btn btn-lg">Login</a></li>
               @endif
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -140,8 +140,39 @@
             </div><!-- /.modal -->
         </div>
 <!-- --------------------- Modal end --------------------- -->
+
+<!-- --------------------- Modal for login --------------------- -->
+
+        <div class="container">
+            <div id="modal-login" class="modal fade lg" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        {{ Form::open(array('action' => 'HomeController@doLogin', 'class' => 'post')) }}                        
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3>Login</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="input-group form-group">
+                                {{ Form::label('email', 'Email:', array('class' => 'input-group-addon')) }}
+                                {{ Form::text('email', Input::old('email') , array('class' => 'form-control')) }}
+                            </div>                        
+                            <div class="input-group form-group">
+                                {{ Form::label('password', 'Password:', array('class' => 'input-group-addon')) }}
+                                {{ Form::password('password', array('class' => 'form-control')) }}
+                            </div>
+                        </div> 
+                        <div class="modal-footer">
+                            {{Form::submit('Post', array('class' => 'btn btn-default'))}}
+                        </div>
+                        {{ Form::close() }}
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dalog -->
+            </div><!-- /.modal -->
+        </div>
+<!-- --------------------- Modal end --------------------- -->
     
-    
+    <script src="/js/following.js"></script>
     <script src="/js/jquery.tagsinput.js"></script>
     <script type="text/javascript">
             $('#tags').tagsInput({
