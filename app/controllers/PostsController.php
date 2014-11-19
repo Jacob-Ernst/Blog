@@ -32,6 +32,12 @@ class PostsController extends \BaseController {
 				$nameSearch->orWhere('last_name', 'like', "%$search%");
 			});
 		}
+		if (Input::has('tag')) {
+            $query->whereHas('tags', function($q)
+            {
+                $q->where('tag', '=', Input::get('tag'));
+            });
+        }
 		
 		$posts = $query->orderBy('created_at', 'DESC')->paginate(4);
 		
