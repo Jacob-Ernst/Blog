@@ -7,22 +7,36 @@
     <!--add bootstrap and jquery-->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src='/jquery-1.11.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="/font-awesome-4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput.css" />
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/Markdown.Converter.js"></script>
     <script type="text/javascript" src="/js/Markdown.Sanitizer.js"></script>
     <script type="text/javascript" src="/js/Markdown.Editor.js"></script>
-    <link rel="stylesheet" type="text/css" href="/font-awesome-4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput.css" />
     <style type="text/css" media="screen">
         body{
             background-image: url('/img/congruent_pentagon/congruent_pentagon.png')
         }
+        
         nav{
             background-image: url('/img/sprinkles/sprinkles.png')
         }
+        
         .tag-holder{
             height: 30%;
             width: 50%;
+        }
+        .nav-pills>li>a {
+            border-radius: 4px;
+            background-color: rgba(210, 233, 253, 0.61);
+            padding: 3px 6px;
+            margin: 2px;
+        }
+        .jumbotron {
+            padding: 30px;
+            margin-bottom: 30px;
+            color: inherit;
+            background-color: rgba(255, 255, 255, 0.42);
         }
     </style>
     @yield('top-script')
@@ -51,11 +65,7 @@
           @endif
           <form class="navbar-form navbar-left" role="search" method='GET' action="{{ action('PostsController@index')}}">
               <input type="text" id='search' name='search'class="form-control" placeholder="Search">
-            <div class="form-group">
-                <span>
-                    <button class='btn btn-default'><i class='fa fa-search'></i></button>
-                </span>
-            </div>
+            
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Link</a></li>
@@ -163,7 +173,7 @@
                             </div>
                         </div> 
                         <div class="modal-footer">
-                            {{Form::submit('Post', array('class' => 'btn btn-default'))}}
+                            {{Form::submit('Login', array('class' => 'btn btn-default'))}}
                         </div>
                         {{ Form::close() }}
                     </div><!-- /.modal-content -->
@@ -177,6 +187,7 @@
     <script type="text/javascript">
             $('#tags').tagsInput({
             }); 
+            $( '#dl-menu' ).dlmenu();
     </script>
     @yield('bottom script')
 
