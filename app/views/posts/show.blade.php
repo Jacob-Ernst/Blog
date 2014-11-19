@@ -2,9 +2,10 @@
 @section('title', "<title>$post->title</title>")
 
 @section('content')
-    <h1>YOOOOOO</h1>
     <h1 class='text-left page-header'>{{{$post->title}}}</h1>
-    <img src="{{$post->file}}" class='img-responsive'>
+    @if($post->file)
+        <img src="{{$post->file}}" class='img-responsive'>
+    @endif
     <p class=''>{{{$post->content}}}</p>
     <p class='small'>Created by {{{$post->user->first_name}}} {{{$post->user->last_name}}} {{{$post->created_at->diffForHumans()}}}</p>
    

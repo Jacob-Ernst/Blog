@@ -32,8 +32,14 @@ class PostsController extends \BaseController {
 				$nameSearch->orWhere('last_name', 'like', "%$search%");
 			});
 		}
+		if (Input::has('tag')) {
+            $query->whereHas('tags', function($q)
+            {
+                $q->where('tag', '=', Input::get('tag'));
+            });
+        }
 		
-		$posts = $query->orderBy('created_at', 'DESC')->paginate(3);
+		$posts = $query->orderBy('created_at', 'DESC')->paginate(4);
 		
 		return View::make('posts.index')->with('posts', $posts);
 	}
@@ -91,6 +97,9 @@ class PostsController extends \BaseController {
 			
 			$post_id = $post->id;
 			
+			if (Input::has('tags')) {
+            	$post->tag_list = Input::get('tags');
+        	}
 			Session::flash('successMessage', 'Thar ye goes!');
 			
 			return Redirect::action('PostsController@show', $post_id);
@@ -168,9 +177,6 @@ class PostsController extends \BaseController {
 				$filename = str_random(8) . "_" . $file->getClientOriginalName();
 				$file->move($destinationPath, $filename);
 				$post->file = $local_path . $filename;
-			}
-			else{
-				$post->file = null;
 			}
 			$post->save();
 			
