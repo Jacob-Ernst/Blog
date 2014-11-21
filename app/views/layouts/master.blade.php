@@ -15,11 +15,16 @@
     <script type="text/javascript" src="/js/Markdown.Editor.js"></script>
     <style type="text/css" media="screen">
         body{
-            background-image: url('/img/congruent_pentagon/congruent_pentagon.png')
+            background-image: url('/img/swirl_pattern/swirl_pattern.png');
+            color: rgb(81,81,81);
         }
         
-        nav{
-            background-image: url('/img/sprinkles/sprinkles.png')
+         .navbar-default{
+            background-color: rgba(64,192,203, .6);
+        }
+        
+        .holder{
+            background-color: rgba(0,180,255, .6);
         }
         
         .tag-holder{
@@ -36,7 +41,13 @@
             padding: 30px;
             margin-bottom: 30px;
             color: inherit;
-            background-color: rgba(255, 255, 255, 0.42);
+            background-color: rgba(0,180,255, .6);
+        }
+        a:hover{
+            color: FA6900;
+        }
+        a{
+            color: F38630;
         }
     </style>
     @yield('top-script')
