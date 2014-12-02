@@ -8,6 +8,15 @@
             <img src="{{$post->file}}" class='img-responsive'>
         @endif
         <p class=''>{{{$post->content}}}</p>
+        <ul class="nav nav-pills">
+            @foreach ($post->tags as $tag)
+                <li>
+                    <a href="{{{ action('PostsController@index', ['tag' => $tag->tag]) }}}">
+                    <i class="fa fa-tag"></i> {{{ $tag->tag }}}
+                    </a>
+                </li>
+            @endforeach
+        </ul> 
         <p class='small'>Created by {{{$post->user->first_name}}} {{{$post->user->last_name}}} {{{$post->created_at->diffForHumans()}}}</p>
        
         @if(Auth::check() && Auth::Id() == $post->user_id)
