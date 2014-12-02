@@ -1,0 +1,53 @@
+body{
+    background-image: url('/img/swirl_pattern/swirl_pattern.png');
+    color: rgb(81,81,81);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.small {
+    font-size: 75%;
+}
+
+ .navbar-default{
+    background-color: rgba(64,192,203, .6);
+}
+
+.holder{
+    background-color: rgba(0,180,255, .6);
+}
+
+.tag-holder{
+    height: 30%;
+    width: 50%;
+}
+.nav-pills>li>a {
+    border-radius: 4px;
+    background-color: rgba(210, 233, 253, 0.61);
+    padding: 3px 6px;
+    margin: 2px;
+    font-size: 75%;
+}
+.jumbotron {
+    padding: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: rgba(0,180,255, .6);
+}
+a:hover{
+    color: FA6900;
+}
+a{
+    color: F38630;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: FA6900;
+}
+.navbar-default .navbar-brand{
+    color: F38630;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: FA6900;
+}
+.navbar-default .navbar-nav > li > a {
+    color: F38630;
+}

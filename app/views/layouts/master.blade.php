@@ -9,36 +9,12 @@
     <script src='/jquery-1.11.1.min.js'></script>
     <link rel="stylesheet" type="text/css" href="/font-awesome-4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/Markdown.Converter.js"></script>
     <script type="text/javascript" src="/js/Markdown.Sanitizer.js"></script>
     <script type="text/javascript" src="/js/Markdown.Editor.js"></script>
-    <style type="text/css" media="screen">
-        body{
-            background-image: url('/img/congruent_pentagon/congruent_pentagon.png')
-        }
-        
-        nav{
-            background-image: url('/img/sprinkles/sprinkles.png')
-        }
-        
-        .tag-holder{
-            height: 30%;
-            width: 50%;
-        }
-        .nav-pills>li>a {
-            border-radius: 4px;
-            background-color: rgba(210, 233, 253, 0.61);
-            padding: 3px 6px;
-            margin: 2px;
-        }
-        .jumbotron {
-            padding: 30px;
-            margin-bottom: 30px;
-            color: inherit;
-            background-color: rgba(255, 255, 255, 0.42);
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/blog.css" />
     @yield('top-script')
 </head>
 <body>
@@ -53,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{{ action('PostsController@index') }}}">Bloggy Wog</a>
+          <a class="navbar-brand orange" href="{{{ action('PostsController@index') }}}">Bloggy Wog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,7 +44,7 @@
             
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
+            <li><a href="#" class='orange'>Link</a></li>
             
               @if(Auth::check())
                 <li class="dropdown">

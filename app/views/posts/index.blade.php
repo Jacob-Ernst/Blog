@@ -13,7 +13,7 @@
                 <h1>Posts containing the word(s) "{{{Input::get('search')}}}":</h1>
             @endif
             @forelse($posts as $post)
-                <div class='col-md-6'>
+                <div class='col-md-6 holder'>
                     <div class='page-header'>
                         <h3><a href="{{{ action('PostsController@show', $post->id) }}}">{{ $post->title}}</a><small> by {{{$post->user->first_name}}} {{{$post->user->last_name}}}</small></h3>
                     </div>
