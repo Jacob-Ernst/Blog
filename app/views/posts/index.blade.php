@@ -22,7 +22,7 @@
                             <img src="{{$post->file}}" class='img-responsive'>
                         @endif
                         <p>{{ substr($post->content, 0, 255) . "..."}}</p>
-                        <a href="{{ action('PostsController@show', $post->id)}}" class='btn btn-primary btn-sm'>Read more</a>
+                        <a href="{{ action('PostsController@show', $post->id)}}" class='btn btn-primary btn-sm btn-ap'>Read more</a>
                         <ul class="nav nav-pills">
                         @foreach ($post->tags as $tag)
                             <li>

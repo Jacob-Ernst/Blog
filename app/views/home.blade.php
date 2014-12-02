@@ -12,7 +12,7 @@
             <li><a href="{{{ action('HomeController@showResume') }}}"><i class="fa fa-briefcase fa-2x"></i>  Resume</a></li>
         </ul>
         <br>
-        <p><a class="btn btn-primary btn-lg" href="{{{ action('HomeController@showAbout') }}}" role="button">About me</a></p>
+        <p><a class="btn btn-primary btn-lg btn-ap" href="{{{ action('HomeController@showAbout') }}}" role="button">About me</a></p>
     </div>
 
 @stop

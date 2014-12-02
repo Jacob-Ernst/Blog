@@ -51,3 +51,10 @@ a{
 .navbar-default .navbar-nav > li > a {
     color: F38630;
 }
+
+.btn-ap{
+    color: #FFF;
+    border-color: #1992DA #0C75BB #00589C;
+    box-shadow: 0px 1px 1px 0px #6FC5F5 inset;
+    background: linear-gradient(to bottom, #37AAEA 0px, #117ED2 100%) repeat scroll 0% 0% transparent;
+}
