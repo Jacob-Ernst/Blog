@@ -4,14 +4,15 @@
 @section('content')
 
     <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>My Info:</p>
-        <ul>
-            <li><a href=""><i class="fa fa-linkedin-square fa-2x"></i>  LinkedIn</a></li>
-            <li><a href=""><i class="fa fa-github fa-2x"></i>   GitHub</a></li>
+        <h1>Welcome!</h1>
+        <ul class='nav nav-pills'>
+            <li><a href="{{{ action('PostsController@index') }}}"><i class="fa fa-newspaper-o fa-2x"></i>  Blog</a></li>
+            <li><a href="{{{ action('HomeController@showPortfolio') }}}"><i class="fa fa-folder fa-2x"></i>   Portfolio</a></li>
             <li><a href="mailto:jacob.f.ernst@gmail.com"><i class="fa fa-envelope fa-2x"></i>   Email</a></li>
+            <li><a href="{{{ action('HomeController@showResume') }}}"><i class="fa fa-briefcase fa-2x"></i>  Resume</a></li>
         </ul>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+        <br>
+        <p><a class="btn btn-primary btn-lg" href="{{{ action('HomeController@showAbout') }}}" role="button">About me</a></p>
     </div>
 
 @stop
