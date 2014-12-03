@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand orange" href="{{{ action('PostsController@index') }}}">Bloggy Wog</a>
+          <a class="navbar-brand orange" href="{{{ action('HomeController@showWelcome') }}}">Home</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,7 +44,6 @@
             
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class='orange'>Link</a></li>
             
               @if(Auth::check())
                 <li class="dropdown">
