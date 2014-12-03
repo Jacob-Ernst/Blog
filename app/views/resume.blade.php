@@ -13,8 +13,9 @@
             <div class="col-xs-3 col-md-5 col-md-offset-4">
                 <ul >
                     <LH class='text-left'>Contact me</LH>
-                    <li>Pikachu</li>
-                    <li>Bill</li>
+                    <li><a href="https://github.com/Jacob-Ernst" target='_blank'><i class="fa fa-github fa-2x"></i>  GitHub</a></li>
+                    <li><a href="http://www.linkedin.com/pub/jacob-ernst/a3/3aa/497/" target='_blank'><i class="fa fa-linkedin-square fa-2x"></i>  LinkedIn</a></li>
+                    <li><a href="mailto:jacob.f.ernst@gmail.com"><i class="fa fa-envelope fa-2x"></i>   Email</a></li>
                 </ul>
             </div>
     </div>
